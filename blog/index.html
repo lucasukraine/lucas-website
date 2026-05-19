@@ -2397,18 +2397,70 @@
   }
 
   /* FOOTER */
-
-
+  .footer {
+    background:#000;
+    color:var(--on-dark-soft);
+    padding:96px 0 32px;
+  }
+  .footer-top {
+    display:grid;
+    grid-template-columns:1.2fr 1fr 1fr 1fr;
+    gap:64px;
+    padding-bottom:64px;
+    border-bottom:1px solid var(--line-dark);
+    align-items:start;
+  }
   .footer-mark { color:#fff; line-height:0; }
   .footer-mark .logo-svg { width:160px; }
-
-
-
-
+  .footer-tagline {
+    margin-top:24px;
+    color:var(--on-dark-soft);
+    font-size:14px;
+    line-height:1.55;
+    max-width:30ch;
+  }
+  .footer h5 {
+    color:#fff;
+    font-family:var(--body);
+    font-size:12px;
+    font-weight:500;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    margin-bottom:22px;
+  }
+  .footer ul {
+    list-style:none;
+    padding:0;
+    margin:0;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .footer a {
+    color:var(--on-dark-soft);
+    font-size:14px;
+    transition:color .2s var(--ease);
+  }
   .footer a:hover { color:#fff; }
-
-
-
+  .footer-col p {
+    color:var(--on-dark-soft);
+    font-size:14px;
+    line-height:1.55;
+    margin-bottom:8px;
+  }
+  .footer-bot {
+    margin-top:32px;
+    padding-top:28px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-top:1px solid var(--line-dark);
+    font-size:12.5px;
+    color:var(--on-dark-mute);
+    flex-wrap:wrap;
+    gap:14px;
+  }
+  .footer-bot b { color:#fff; font-weight:500; }
 
   /* REVEAL (sections after hero) */
   .reveal {
@@ -2526,7 +2578,7 @@
     .ledger-row .lr-hint { grid-column:1 / -1; padding-left:24px; }
 
     /* FOOTER */
-  
+    .footer-top { grid-template-columns:1fr 1fr; gap:48px; }
 
     /* HEADER */
     .nav { display:none; }
@@ -2721,12 +2773,16 @@
 
     /* FOOTER */
     .footer { padding:72px 0 24px; }
-  
+    .footer-top {
+      grid-template-columns:1fr;
+      gap:36px;
+      padding-bottom:48px;
+    }
     .footer-mark .logo-svg { width:120px; }
-  
-  
-  
-  
+    .footer-tagline { font-size:13.5px; max-width:none; }
+    .footer h5 { margin-bottom:14px; }
+    .footer ul { gap:8px; }
+    .footer a { font-size:13.5px; }
     .footer-bot {
       flex-direction:column;
       align-items:flex-start;
@@ -3148,9 +3204,177 @@
   }
 </style>
 
+</head>
+<body id="top">
 
-<style>
-  .footer {
+<svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false">
+  <symbol id="lucas-mark" viewBox="0 0 500.61676 68.570709" preserveAspectRatio="xMidYMid meet">
+    <g
+    transform="matrix(1.9896013,0,0,1.9896013,-727.29754,-416.35915)">
+    <path
+    d="m 584.65003,209.37028 c 3.17869,-0.18949 7.79551,-0.0426 11.08728,-0.0404 l 21.15683,0.0181 c -1.49489,1.79613 -2.38357,3.03422 -3.56494,5.04663 -9.17288,0.48876 -18.7196,-0.15943 -27.91953,0.19116 -5.06383,0.19295 -6.46293,6.38514 -2.35475,8.70446 1.42171,0.8027 4.82435,0.63281 6.52988,0.62683 l 11.9875,-0.0418 c 2.18003,-0.007 6.22213,-0.13167 8.22655,0.29072 1.4838,0.30896 2.86871,0.97902 4.0319,1.95108 1.90375,1.57339 3.08734,3.85186 3.2798,6.31436 0.5419,6.17734 -2.91484,10.68108 -9.13918,11.21899 -4.77647,0.15565 -9.9853,0.0346 -14.79059,0.035 -5.87135,0.001 -12.07751,0.11841 -17.93202,-0.0732 1.09356,-0.97427 2.75918,-3.67624 3.839,-5.03544 l 18.54177,-0.0164 c 3.3104,0.002 6.60483,0.0275 9.92011,-0.0373 4.8115,-0.0945 6.10683,-7.47711 1.52416,-8.99817 -1.68647,-0.55964 -4.30773,-0.40576 -6.12989,-0.39733 l -11.58307,0.0435 c -4.3636,0.003 -9.25182,0.47095 -12.8141,-2.51795 -3.84298,-3.22392 -4.20529,-10.32116 -0.94456,-14.06384 1.94855,-2.23613 4.18711,-3.00614 7.04785,-3.21905 z"
+    style="fill:currentColor;stroke-width:0.443456" />
+    <path
+    d="m 509.26077,209.26815 0.0537,0.12821 c -0.98048,1.51258 -2.3614,3.80058 -3.44166,5.14586 -3.09133,-0.21517 -7.04518,-0.0821 -10.16356,-0.0493 l -11.67885,0.0232 c -4.11571,0.0176 -7.73254,0.31561 -10.77686,3.51518 -6.24608,6.56506 -3.26783,17.94679 5.65539,20.19201 1.47493,0.32683 3.07182,0.38137 4.5769,0.35742 8.22345,-0.13259 16.50277,0.13526 24.71779,0.0266 -1.05498,1.40354 -1.79068,2.99244 -2.94588,4.29842 -0.61108,0.69135 -0.89578,0.73436 -1.76407,0.76718 -4.23101,0.0944 -8.57865,0.0474 -12.81232,0.008 -7.51702,-0.17561 -14.3724,1.28559 -20.41227,-4.25584 -10.08507,-9.25271 -6.29397,-26.35317 7.18043,-29.70915 2.57249,-0.64066 6.6514,-0.39835 9.34628,-0.39671 l 14.13471,0.0241 c 2.54544,0.005 5.84741,0.0967 8.33032,-0.0757 z"
+    style="fill:currentColor;stroke-width:0.443456" />
+    <path
+    d="m 410.53731,209.3023 c 1.77426,0.009 3.54764,0.0482 5.32058,0.11898 l -0.003,0.23348 -0.0594,12.98523 c -0.005,7.54087 -0.7827,15.88671 9.94183,15.97274 1.92638,0.0155 3.92902,0.0129 5.85185,-0.039 2.85053,-0.0772 6.2443,0.28913 8.98751,-0.47272 1.28824,-0.34945 2.46118,-1.03148 3.40175,-1.97782 3.49178,-3.46648 2.64877,-9.18663 2.64655,-13.78003 l 0.0523,-13.01534 5.39286,0.0405 -0.003,4.9632 c -0.007,5.08675 0.0687,10.23878 -0.0146,15.32211 -0.0679,4.1197 -1.18891,7.52544 -4.26871,10.39371 -4.59287,4.27758 -9.46911,3.63412 -15.21408,3.64299 -2.90463,-0.003 -5.82523,0.007 -8.7281,-0.0355 -5.96315,-0.0869 -11.51255,-4.04255 -12.81853,-10.00969 -0.86917,-3.97292 -0.53259,-8.3312 -0.55698,-12.40346 -0.0239,-3.93318 -0.0705,-8.01144 0.0714,-11.93938 z"
+    style="fill:currentColor;stroke-width:0.443456" />
+    <path
+    d="m 540.09602,209.36607 c 1.38092,-0.0938 2.87226,-0.006 4.24742,0.11889 0.50909,1.09245 3.02925,4.67815 3.85141,5.89109 l 6.64741,9.91217 c 2.94987,4.36094 5.74319,8.83365 8.80348,13.12852 1.19778,1.68114 2.40132,3.66249 3.70108,5.23854 -2.22171,0 -4.49087,0.0266 -6.70726,-0.0652 -1.55432,-2.00885 -3.77736,-5.47224 -5.22524,-7.65316 l -7.14009,-10.67442 c -1.85852,-2.82477 -3.85185,-6.02785 -5.8239,-8.73755 l -0.82439,-1.0399 c -0.93657,1.96815 -2.39599,3.98281 -3.5982,5.82296 -2.43279,3.72433 -5.04785,7.30568 -7.53298,10.99745 l -4.9871,7.47179 c -0.67361,1.00709 -1.90908,3.08733 -2.72992,3.82037 -1.87936,0.14191 -4.2962,0.0705 -6.21725,0.0639 2.0266,-2.75119 4.72192,-7.07091 6.67623,-10.02342 L 533.924,217.80609 c 0.83503,-1.22323 5.33212,-8.18242 6.17202,-8.43998 z"
+    style="fill:currentColor;stroke-width:0.443456" />
+    <path
+    d="m 365.68867,209.27711 5.24324,0.0845 c -0.0655,9.47453 -0.13725,19.71241 0.0397,29.14294 7.85387,0.20267 15.75816,-0.0426 23.61722,0.0856 1.99998,0.0328 4.08822,0.0789 6.07712,-0.0519 -0.66874,0.83326 -1.46208,2.07449 -2.07671,2.98534 -0.61019,0.89268 -0.88425,1.31706 -1.67537,2.08158 -2.9849,0.20134 -7.17831,0.0936 -10.24086,0.098 l -21.00366,-0.0226 c -0.10443,-11.15468 -0.21592,-23.28963 0.0193,-34.40344 z"
+    style="fill:currentColor;stroke-width:0.443456" />
+  </g>
+  </symbol>
+</svg>
+
+<header class="header" id="header">
+  <div class="header-inner">
+    <a class="logo" href="https://lucasukraine.github.io/lucas-website/" aria-label="LUCAS — на головну">
+      <svg class="logo-svg" aria-hidden="true"><use href="#lucas-mark"/></svg>
+    </a>
+    <nav class="nav">
+      <a href="https://lucasukraine.github.io/lucas-website/#audit">Аудит</a>
+      <a href="https://lucasukraine.github.io/lucas-website/#solutions">Послуги</a>
+      <a href="https://lucasukraine.github.io/lucas-website/#industries">Галузі</a>
+      <a href="https://lucasukraine.github.io/lucas-website/blog/">Блог</a>
+      <a href="https://lucasukraine.github.io/lucas-website/#contact">Контакти</a>
+    </nav>
+    <a class="header-cta" href="https://lucasukraine.github.io/lucas-website/#contact">Обговорити проєкт</a>
+  </div>
+</header>
+
+<main>
+  <section class="blog-hero">
+    <div class="blog-hero-deco" aria-hidden="true"></div>
+    <div class="blog-hero-inner">
+      <div class="art-eyebrow">База знань</div>
+      <h1 class="blog-hero-h1">Експертні матеріали<span class="op">.</span></h1>
+      <p class="blog-hero-lead">Гайди, аналітика та практичні відповіді на питання, з якими стикаються фінансові директори і головні бухгалтери у 2026 році. Аудит, МСФЗ, SAF-T, трансфертне ціноутворення, перехід на Odoo.</p>
+    </div>
+  </section>
+
+  <section class="blog-list">
+    <div class="blog-list-inner">
+      <div class="blog-grid">
+        <a class="blog-card" href="https://lucasukraine.github.io/lucas-website/blog/zaborona-1c-2026/">
+          <div class="blog-card-meta">
+            <span class="blog-card-cat">ERP та облік</span>
+            <span>12 хв читання</span>
+          </div>
+          <h2 class="blog-card-h2">Заборона 1С в Україні 2026</h2>
+          <p class="blog-card-excerpt">Постанова КМУ №1335, санкційні списки РНБО, законопроєкт №13505 зі штрафами до 2% річного обороту — використання 1С/BAS/BAF в Україні стає не лише репутаційним, а й прямим фінансов...</p>
+          <div class="blog-card-foot">15 січня 2026 · LUCAS</div>
+        </a>
+        <a class="blog-card" href="https://lucasukraine.github.io/lucas-website/blog/saf-t-ukraina-povny-gayd/">
+          <div class="blog-card-meta">
+            <span class="blog-card-cat">Податковий облік</span>
+            <span>15 хв читання</span>
+          </div>
+          <h2 class="blog-card-h2">SAF-T в Україні</h2>
+          <p class="blog-card-excerpt">Standard Audit File for Tax (SAF-T) — формат стандартизованої передачі облікових даних у Державну податкову службу. У 2026 році вимога подавати SAF-T поширюється на дедалі ширше ко...</p>
+          <div class="blog-card-foot">8 лютого 2026 · LUCAS</div>
+        </a>
+        <a class="blog-card" href="https://lucasukraine.github.io/lucas-website/blog/zvit-pro-kontrolovani-operatsii/">
+          <div class="blog-card-meta">
+            <span class="blog-card-cat">Трансфертне ціноутворення</span>
+            <span>14 хв читання</span>
+          </div>
+          <h2 class="blog-card-h2">Хто подає звіт про контрольовані операції</h2>
+          <p class="blog-card-excerpt">Звіт про контрольовані операції — одна з найскладніших ділянок податкової звітності. Помилка у визначенні кола повʼязаних осіб або пропуск операції коштує мільйони у вигляді донара...</p>
+          <div class="blog-card-foot">12 березня 2026 · LUCAS</div>
+        </a>
+        <a class="blog-card" href="https://lucasukraine.github.io/lucas-website/blog/ifrs-1-pershyy-perehid-msfz/">
+          <div class="blog-card-meta">
+            <span class="blog-card-cat">МСФЗ та звітність</span>
+            <span>13 хв читання</span>
+          </div>
+          <h2 class="blog-card-h2">IFRS 1: перший перехід на МСФЗ</h2>
+          <p class="blog-card-excerpt">Перша звітність за МСФЗ — це окремий стандарт МСФЗ 1, який встановлює методологію всього процесу: від визначення дати переходу до облікової політики, обовʼязкових винятків і добров...</p>
+          <div class="blog-card-foot">5 квітня 2026 · LUCAS</div>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+
+    <div class="footer-grid">
+
+      <!-- Brand -->
+      <div class="footer-brand">
+        <a class="footer-mark" href="#top" aria-label="LUCAS">
+          <svg class="logo-svg" aria-hidden="true"><use href="#lucas-mark"/></svg>
+        </a>
+        <p class="footer-tagline">Аудит, технологія і досвід — в одній команді<span class="op">.</span></p>
+        <p class="footer-legal">ТОВ «Лукас Аудит»<br>Аудиторська та технологічна компанія</p>
+      </div>
+
+      <!-- Services -->
+      <div>
+        <div class="footer-col-label">Послуги</div>
+        <ul>
+          <li><a href="/lucas-website/audit/">Аудит та звітність</a></li>
+          <li><a href="/lucas-website/saf-t/">SAF-T Connector</a></li>
+          <li><a href="/lucas-website/odoo-migration/">Міграція на Odoo</a></li>
+          <li><a href="/lucas-website/transfer-pricing/">Трансфертне ціноутворення</a></li>
+        </ul>
+      </div>
+
+      <!-- Company -->
+      <div>
+        <div class="footer-col-label">Компанія</div>
+        <ul>
+          <li><a href="#audit">Аудит як ядро</a></li>
+          <li><a href="#industries">Галузі</a></li>
+          <li><a href="#faq">Питання</a></li>
+          <li><a href="/lucas-website/blog/">Блог</a></li>
+          <li><a href="/lucas-website/documents/">Документи</a></li>
+          <li><a href="#contact">Контакти</a></li>
+        </ul>
+      </div>
+
+      <!-- Contacts -->
+      <div class="footer-contact">
+        <div class="footer-col-label">Зв'язатись</div>
+        <div class="footer-contact-row">
+          <span class="footer-contact-lbl">Email</span>
+          <button class="footer-contact-val email-reveal" id="footer-email-reveal" type="button">Показати email</button>
+        </div>
+        <div class="footer-contact-row">
+          <span class="footer-contact-lbl">Телефон</span>
+          <a class="footer-contact-val" href="tel:+380443447915">+380 44 344 7915</a>
+        </div>
+        <div class="footer-contact-row">
+          <span class="footer-contact-lbl">Адреса</span>
+          <span class="footer-contact-val">м. Київ, пл. Спортивна 1а<br>БЦ Гулівер, Вежа А, 17 пов.</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bot">
+      <span class="footer-bot-copy">© <span id="footer-year"></span> LUCAS · ТОВ «Лукас Аудит» · All rights reserved</span>
+      <a class="footer-bot-cta" href="#contact">Обговорити проєкт →</a>
+    </div>
+
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('header');
+  if (header) {
+    const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 20);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive:true });
+  }
+</script>
+
+<style>.footer {
     background:#000;
     color:rgba(255,255,255,.5);
     padding:0;
@@ -3658,1503 +3882,19 @@
     .station h3 { font-size:17px !important; }
     .contact-residency { padding:24px 18px; }
     .audit-card { padding:24px 20px; }
-  }
-</style>
-</head>
-<body>
-
-<!-- LUCAS wordmark — defined once -->
-
-
-<!-- Sticky scrim — gradient backing under header over hero -->
-<div class="page-scrim" id="page-scrim" aria-hidden="true"></div>
-
-<!-- HEADER -->
-<svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false">
-  <symbol id="lucas-mark" viewBox="0 0 500.61676 68.570709" preserveAspectRatio="xMidYMid meet">
-    <g
-    transform="matrix(1.9896013,0,0,1.9896013,-727.29754,-416.35915)">
-    <path
-    d="m 584.65003,209.37028 c 3.17869,-0.18949 7.79551,-0.0426 11.08728,-0.0404 l 21.15683,0.0181 c -1.49489,1.79613 -2.38357,3.03422 -3.56494,5.04663 -9.17288,0.48876 -18.7196,-0.15943 -27.91953,0.19116 -5.06383,0.19295 -6.46293,6.38514 -2.35475,8.70446 1.42171,0.8027 4.82435,0.63281 6.52988,0.62683 l 11.9875,-0.0418 c 2.18003,-0.007 6.22213,-0.13167 8.22655,0.29072 1.4838,0.30896 2.86871,0.97902 4.0319,1.95108 1.90375,1.57339 3.08734,3.85186 3.2798,6.31436 0.5419,6.17734 -2.91484,10.68108 -9.13918,11.21899 -4.77647,0.15565 -9.9853,0.0346 -14.79059,0.035 -5.87135,0.001 -12.07751,0.11841 -17.93202,-0.0732 1.09356,-0.97427 2.75918,-3.67624 3.839,-5.03544 l 18.54177,-0.0164 c 3.3104,0.002 6.60483,0.0275 9.92011,-0.0373 4.8115,-0.0945 6.10683,-7.47711 1.52416,-8.99817 -1.68647,-0.55964 -4.30773,-0.40576 -6.12989,-0.39733 l -11.58307,0.0435 c -4.3636,0.003 -9.25182,0.47095 -12.8141,-2.51795 -3.84298,-3.22392 -4.20529,-10.32116 -0.94456,-14.06384 1.94855,-2.23613 4.18711,-3.00614 7.04785,-3.21905 z"
-    style="fill:currentColor;stroke-width:0.443456" />
-    <path
-    d="m 509.26077,209.26815 0.0537,0.12821 c -0.98048,1.51258 -2.3614,3.80058 -3.44166,5.14586 -3.09133,-0.21517 -7.04518,-0.0821 -10.16356,-0.0493 l -11.67885,0.0232 c -4.11571,0.0176 -7.73254,0.31561 -10.77686,3.51518 -6.24608,6.56506 -3.26783,17.94679 5.65539,20.19201 1.47493,0.32683 3.07182,0.38137 4.5769,0.35742 8.22345,-0.13259 16.50277,0.13526 24.71779,0.0266 -1.05498,1.40354 -1.79068,2.99244 -2.94588,4.29842 -0.61108,0.69135 -0.89578,0.73436 -1.76407,0.76718 -4.23101,0.0944 -8.57865,0.0474 -12.81232,0.008 -7.51702,-0.17561 -14.3724,1.28559 -20.41227,-4.25584 -10.08507,-9.25271 -6.29397,-26.35317 7.18043,-29.70915 2.57249,-0.64066 6.6514,-0.39835 9.34628,-0.39671 l 14.13471,0.0241 c 2.54544,0.005 5.84741,0.0967 8.33032,-0.0757 z"
-    style="fill:currentColor;stroke-width:0.443456" />
-    <path
-    d="m 410.53731,209.3023 c 1.77426,0.009 3.54764,0.0482 5.32058,0.11898 l -0.003,0.23348 -0.0594,12.98523 c -0.005,7.54087 -0.7827,15.88671 9.94183,15.97274 1.92638,0.0155 3.92902,0.0129 5.85185,-0.039 2.85053,-0.0772 6.2443,0.28913 8.98751,-0.47272 1.28824,-0.34945 2.46118,-1.03148 3.40175,-1.97782 3.49178,-3.46648 2.64877,-9.18663 2.64655,-13.78003 l 0.0523,-13.01534 5.39286,0.0405 -0.003,4.9632 c -0.007,5.08675 0.0687,10.23878 -0.0146,15.32211 -0.0679,4.1197 -1.18891,7.52544 -4.26871,10.39371 -4.59287,4.27758 -9.46911,3.63412 -15.21408,3.64299 -2.90463,-0.003 -5.82523,0.007 -8.7281,-0.0355 -5.96315,-0.0869 -11.51255,-4.04255 -12.81853,-10.00969 -0.86917,-3.97292 -0.53259,-8.3312 -0.55698,-12.40346 -0.0239,-3.93318 -0.0705,-8.01144 0.0714,-11.93938 z"
-    style="fill:currentColor;stroke-width:0.443456" />
-    <path
-    d="m 540.09602,209.36607 c 1.38092,-0.0938 2.87226,-0.006 4.24742,0.11889 0.50909,1.09245 3.02925,4.67815 3.85141,5.89109 l 6.64741,9.91217 c 2.94987,4.36094 5.74319,8.83365 8.80348,13.12852 1.19778,1.68114 2.40132,3.66249 3.70108,5.23854 -2.22171,0 -4.49087,0.0266 -6.70726,-0.0652 -1.55432,-2.00885 -3.77736,-5.47224 -5.22524,-7.65316 l -7.14009,-10.67442 c -1.85852,-2.82477 -3.85185,-6.02785 -5.8239,-8.73755 l -0.82439,-1.0399 c -0.93657,1.96815 -2.39599,3.98281 -3.5982,5.82296 -2.43279,3.72433 -5.04785,7.30568 -7.53298,10.99745 l -4.9871,7.47179 c -0.67361,1.00709 -1.90908,3.08733 -2.72992,3.82037 -1.87936,0.14191 -4.2962,0.0705 -6.21725,0.0639 2.0266,-2.75119 4.72192,-7.07091 6.67623,-10.02342 L 533.924,217.80609 c 0.83503,-1.22323 5.33212,-8.18242 6.17202,-8.43998 z"
-    style="fill:currentColor;stroke-width:0.443456" />
-    <path
-    d="m 365.68867,209.27711 5.24324,0.0845 c -0.0655,9.47453 -0.13725,19.71241 0.0397,29.14294 7.85387,0.20267 15.75816,-0.0426 23.61722,0.0856 1.99998,0.0328 4.08822,0.0789 6.07712,-0.0519 -0.66874,0.83326 -1.46208,2.07449 -2.07671,2.98534 -0.61019,0.89268 -0.88425,1.31706 -1.67537,2.08158 -2.9849,0.20134 -7.17831,0.0936 -10.24086,0.098 l -21.00366,-0.0226 c -0.10443,-11.15468 -0.21592,-23.28963 0.0193,-34.40344 z"
-    style="fill:currentColor;stroke-width:0.443456" />
-  </g>
-  </symbol>
-</svg>
-
-<header class="header" id="header">
-  <div class="header-inner">
-    <a class="logo" href="#top" aria-label="LUCAS">
-      <svg class="logo-svg" aria-hidden="true"><use href="#lucas-mark"/></svg>
-    </a>
-    <nav class="nav">
-      <a href="#audit">Аудит</a>
-      <a href="#solutions">Послуги</a>
-      <a href="#industries">Галузі</a>
-      <a href="/blog/">Блог</a>
-      <a href="#contact">Контакти</a>
-    </nav>
-    <a class="header-cta" href="#contact">Обговорити проєкт</a>
-  </div>
-</header>
-
-<main id="top">
-
-  <!-- ============================================================
-       HERO — REBUILT, CINEMATIC
-       ============================================================ -->
-  <section class="hero">
-    <div class="hero-atmos" aria-hidden="true"></div>
-    <div class="hero-grid" aria-hidden="true"></div>
-
-    <div class="hero-content">
-      <div class="eyebrow hero-eyebrow ha d1">Audit-led finance & technology</div>
-
-      <h1 class="ha d2">
-        <span class="line">Аудиторська компанія</span>
-        <span class="line"><span class="underline">нового</span> типу.</span>
-      </h1>
-
-      <p class="hero-lead ha d4">
-        Поєднуємо аудит, фінансову експертизу та розробку для реалізації проєктів в сфері фінансів, обліку та податків.
-      </p>
-
-      <div class="hero-actions ha d5">
-        <a class="btn cta-orange" href="#contact">Обговорити проєкт <span class="arrow"></span></a>
-        <a class="btn ghost-dark" href="#solutions">Послуги та продукти</a>
-      </div>
-    </div>
-
-    <div class="hero-cards" aria-hidden="true">
-      <!-- LEFT: Audit dashboard -->
-      <div class="hero-card-wrap l">
-        <div class="hero-card has-corner corner-sm">
-          <div class="hc-head">
-            <div class="hc-title">Audit · Q3 <span class="cur-year"></span></div>
-            <div class="hc-status"><span class="dot dot-cyan"></span>live</div>
-          </div>
-          <div class="hc-rows">
-            <div class="hc-row">
-              <span class="hc-check ok">✓</span>
-              <span class="hc-label">Revenue cycle</span>
-              <span class="hc-meta">1,247</span>
-            </div>
-            <div class="hc-row">
-              <span class="hc-check ok">✓</span>
-              <span class="hc-label">Cost of sales</span>
-              <span class="hc-meta">832</span>
-            </div>
-            <div class="hc-row">
-              <span class="hc-check ok">✓</span>
-              <span class="hc-label">Inventory</span>
-              <span class="hc-meta">412</span>
-            </div>
-            <div class="hc-row dim">
-              <span class="hc-check pending">○</span>
-              <span class="hc-label">Receivables</span>
-              <span class="hc-meta">in review</span>
-            </div>
-          </div>
-          <div class="hc-foot">Reviewed · audit procedures completed</div>
-        </div>
-      </div>
-
-      <!-- CENTER: SAF-T Connector -->
-      <div class="hero-card-wrap c">
-        <div class="hero-card has-corner corner-sm corner-cyan">
-          <div class="hc-head">
-            <div class="hc-title">
-              <span class="dot dot-orange"></span>
-              SAF-T Connector
-            </div>
-            <div class="hc-badge">XML</div>
-          </div>
-          <div class="hc-code">
-            <span class="ln"><span class="tk">&lt;n1:AuditFile&gt;</span></span>
-            <span class="ln idt1"><span class="tk">&lt;Header&gt;</span></span>
-            <span class="ln idt2"><span class="tk">&lt;FiscalYear&gt;</span><em><span class="cur-year"></span></em><span class="tk">&lt;/FiscalYear&gt;</span></span>
-            <span class="ln idt2"><span class="tk">&lt;Company&gt;</span><em>...</em><span class="tk">&lt;/Company&gt;</span></span>
-            <span class="ln idt1"><span class="tk">&lt;/Header&gt;</span></span>
-            <span class="ln idt1"><span class="tk">&lt;Transactions&gt;</span><em>1,247,038</em><span class="tk">&lt;/Transactions&gt;</span></span>
-            <span class="ln"><span class="tk">&lt;/n1:AuditFile&gt;</span></span>
-          </div>
-          <div class="hc-foot hc-foot-row">
-            <span><span class="dot dot-green"></span>Validated</span>
-            <span class="hc-foot-meta">12.4 MB</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- RIGHT: TP Benchmark -->
-      <div class="hero-card-wrap r">
-        <div class="hero-card">
-          <div class="hc-head">
-            <div class="hc-title">
-              <span class="dot dot-cyan"></span>
-              TP Benchmark
-            </div>
-            <div class="hc-meta-tiny"><span class="cur-year"></span></div>
-          </div>
-          <div class="hc-tp">
-            <div class="hc-tp-axis"></div>
-            <div class="hc-tp-band"></div>
-            <div class="hc-tp-marker" style="left:14%"></div>
-            <div class="hc-tp-marker" style="left:32%"></div>
-            <div class="hc-tp-marker active" style="left:50%">
-              <div class="hc-tp-label">4.2%</div>
-            </div>
-            <div class="hc-tp-marker" style="left:68%"></div>
-            <div class="hc-tp-marker" style="left:86%"></div>
-          </div>
-          <div class="hc-tp-legend">
-            <span>P25</span>
-            <span>median</span>
-            <span>P75</span>
-          </div>
-          <div class="hc-foot">47 comparables · within range</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRINCIPLES -->
-  <section class="principles" id="audit">
-    <!-- Gradient bleed from hero — visual continuity -->
-    <div class="audit-bleed" aria-hidden="true"></div>
-
-    <div class="container">
-
-      <!-- Eyebrow + company description -->
-      <div class="audit-intro reveal">
-        <div class="eyebrow">Audit as the core</div>
-      </div>
-
-      <!-- Theatrical tagline — section's visual climax -->
-      <h2 class="audit-tagline reveal" data-d="1">
-        <span class="audit-tagline-a">Аудит як ядро<span class="op">.</span></span>
-        <span class="audit-tagline-b">Технології як спосіб масштабування.</span>
-      </h2>
-
-      <!-- Body text with styled bullets -->
-      <div class="audit-body reveal" data-d="2">
-        <p>Робота з LUCAS особливо корисна там, де фінансова експертиза і технології мають працювати разом:</p>
-        <ul class="audit-bullets">
-          <li><span>робота з фінансами потребує глибшого розуміння даних, систем, процесів і технологічних ризиків;</span></li>
-          <li><span>технологічний проєкт потребує розробників, які розуміють облік, фінанси, податки та контроль.</span></li>
-        </ul>
-      </div>
-
-      <!-- Bento cards — asymmetric, 01 featured tall left -->
-      <div class="audit-cards">
-
-        <article class="audit-card has-corner reveal" data-d="1">
-          <span class="audit-card-num" aria-hidden="true">01</span>
-          <div class="audit-card-label">Audit with technology</div>
-          <h3>Аудитор, що бачить систему за цифрами</h3>
-          <p>Сучасна звітність формується не в останній таблиці, а всередині облікових систем, інтеграцій, контрольних процедур і потоків даних. Ми маємо кваліфікацію, щоб бачити, як інформація виникає, трансформується і потрапляє до фінансової звітності.</p>
-          <p>Це допомагає глибше розуміти ризики, точніше працювати з даними та бачити, як технології, автоматизація й якість процесів можуть впливати на фінансовий результат.</p>
-        </article>
-
-        <article class="audit-card reveal" data-d="2">
-          <span class="audit-card-num" aria-hidden="true">02</span>
-          <div class="audit-card-label">Technology with audit logic</div>
-          <h3>Рішення на основі аудиторської логіки</h3>
-          <p>Ми будуємо рішення для обліку, комплаєнсу та роботи з даними на основі перевірюваності, контрольованості та прозорості.</p>
-        </article>
-
-        <article class="audit-card reveal" data-d="3">
-          <span class="audit-card-num" aria-hidden="true">03</span>
-          <div class="audit-card-label">One financial context</div>
-          <h3>Єдина логіка для бізнесу, обліку та IT</h3>
-          <p>Ми узгоджуємо бізнес-процеси, облікову методологію та IT-рішення в єдину систему вимог — без втрати змісту між фінансами та розробкою.</p>
-        </article>
-
-      </div><!-- /audit-cards -->
-
-      <!-- Особливості підходу — moved from Delivery -->
-      <div class="credentials reveal" data-d="4">
-        <div class="credentials-eyebrow">
-          <div class="eyebrow">Особливості підходу</div>
-          <span class="credentials-eyebrow-rule"></span>
-        </div>
-        <div class="cred">
-          <div class="cred-roman">I · Lead</div>
-          <h4>Senior-led delivery</h4>
-          <p>Проєкти ведуть фахівці, які розуміють зміст задачі, бізнес-контекст та очікування керівництва.</p>
-        </div>
-        <div class="cred">
-          <div class="cred-roman">II · Logic</div>
-          <h4>Big 4 discipline</h4>
-          <p>Досвід складних audit, reporting та advisory-проєктів у різних індустріях формує наш стандарт.</p>
-        </div>
-        <div class="cred">
-          <div class="cred-roman">III · Build</div>
-          <h4>Technology inside</h4>
-          <p>Власна команда для data, ERP, SAF-T та reporting-рішень — в межах однієї компанії.</p>
-        </div>
-      </div><!-- /credentials -->
-    </div><!-- /container -->
-  </section>
-
-  <!-- SOLUTIONS — Service Chapters -->
-  <section class="solutions" id="solutions">
-    <div class="solutions-deco" aria-hidden="true"></div>
-
-    <div class="solutions-intro">
-      <div class="solutions-intro-header">
-        <div class="eyebrow solutions-eyebrow">Послуги та продукти</div>
-      </div>
-      <h2 class="solutions-title">Різні напрями<span class="op">.</span><br>Єдиний підхід<span class="op">.</span></h2>
-      <p class="solutions-intro-lead">Ми не обмежуємось окремими послугами — ми будуємо рішення навколо задач клієнта в обліку, оподаткуванні та цифровій трансформації фінансів.</p>
-
-      <nav class="solutions-index" aria-label="Перейти до послуги">
-        <a class="solutions-index-item" href="#svc-audit">
-          <span class="solutions-index-num">01</span>
-          <span class="solutions-index-name">Аудит та звітність</span>
-        </a>
-        <a class="solutions-index-item" href="#svc-saft">
-          <span class="solutions-index-num">02</span>
-          <span class="solutions-index-name">SAF-T Connector</span>
-        </a>
-        <a class="solutions-index-item" href="#svc-odoo">
-          <span class="solutions-index-num">03</span>
-          <span class="solutions-index-name">Міграція з 1C / BAS</span>
-        </a>
-        <a class="solutions-index-item" href="#svc-tp">
-          <span class="solutions-index-num">04</span>
-          <span class="solutions-index-name">Трансфертне ціноутворення</span>
-        </a>
-      </nav>
-    </div>
-
-    <!-- Chapter 01: Audit & Reporting -->
-    <div class="service-chapter" id="svc-audit">
-      <div class="service-context">
-        <div class="service-num">// 01</div>
-        <h2 class="service-name">Аудит та звітність</h2>
-        <div class="service-accent"></div>
-        <p class="service-desc">Аудиторські послуги та послуги з підготовки звітності — згідно законодавчих вимог або за запитом власників, банків або інвесторів. Послуги надаються окремо та не поєднуються для одного клієнта.</p>
-        <div class="service-team">
-          <div class="service-team-label">Команда</div>
-          <p class="service-team-text">Аудиторську практику очолюють лідери з досвідом у Big 4: керівник аудиту, керівник контролю якості та керівник методології. Команда поєднує міжнародний підхід, методологічну дисципліну та досвід в більшості галузей.</p>
-        </div>
-        <a class="arrow-link on-dark" href="https://lucasua.com/audit/">Дізнатися більше</a>
-      </div>
-      <div class="service-features">
-
-        <!-- Audit block -->
-        <div class="fc-divider">
-          <span class="fc-divider-label">Аудит</span>
-          <span class="fc-divider-line"></span>
-        </div>
-
-        <div class="fc" data-n="01">
-          <div class="fc-label">Statutory Audit · МСА</div>
-          <div class="fc-title">Обов'язковий аудит фінансової звітності</div>
-          <p class="fc-body">Для підприємств суспільного інтересу (ПСІ), великих і середніх компаній — аудит за Міжнародними стандартами аудиту з видачею аудиторського висновку відповідно до МСА 700.</p>
-        </div>
-
-        <div class="fc" data-n="02">
-          <div class="fc-label">Group Audit · Консолідація</div>
-          <div class="fc-title">Аудит групи та консолідованої звітності</div>
-          <p class="fc-body">Аудит консолідованої фінансової звітності холдингів — з перевіркою елімінацій, міжгрупових операцій і підготовкою group audit instructions для компонентних аудиторів.</p>
-        </div>
-
-        <div class="fc" data-n="03">
-          <div class="fc-label">Assurance · МСА 2400 / 4400</div>
-          <div class="fc-title">Огляд, погоджені процедури та comfort letters</div>
-          <p class="fc-body">Завдання з обмеженою впевненістю (review), погоджені процедури та підтверджувальні листи для банків, інвесторів або партнерів — там, де повний аудит не потрібен.</p>
-        </div>
-
-        <!-- Reporting block -->
-        <div class="fc-divider">
-          <span class="fc-divider-label">Звітність</span>
-          <span class="fc-divider-line"></span>
-        </div>
-
-        <div class="fc" data-n="04">
-          <div class="fc-label">IFRS Reporting</div>
-          <div class="fc-title">Підготовка повного пакету МСФЗ-звітності</div>
-          <p class="fc-body">Підготовка фінансової звітності відповідно до МСФЗ — для цілей залучення фінансування, вимог материнської компанії або внутрішнього управління. Надається клієнтам, яких ми не аудируємо.</p>
-        </div>
-
-        <div class="fc" data-n="05">
-          <div class="fc-label">IFRS 1 · Conversion</div>
-          <div class="fc-title">Перший звіт за МСФЗ та трансформація НП(С)БО</div>
-          <p class="fc-body">Перша МСФЗ-звітність (IFRS 1), методологія вибору облікової політики та трансформація наявної НП(С)БО-звітності у формат МСФЗ із розкриттями та примітками.</p>
-        </div>
-
-        <div class="fc" data-n="06">
-          <div class="fc-label">Consolidation Package</div>
-          <div class="fc-title">Консолідаційний пакет для групової звітності</div>
-          <p class="fc-body">Підготовка reporting package відповідно до вимог материнської компанії — у визначених форматах, з елімінаційними коригуваннями і розкриттями міжгрупових операцій.</p>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Chapter 02: SAF-T -->
-    <div class="service-chapter" id="svc-saft">
-      <div class="service-context">
-        <div class="service-num">// 02</div>
-        <h2 class="service-name">SAF-T Connector</h2>
-        <div class="service-accent"></div>
-        <p class="service-desc">Власна платформа для підготовки та подачі SAF-T — незалежна від ERP-систем, з необмеженим обсягом даних і впровадженням під ключ силами LUCAS.</p>
-        <div class="service-team">
-          <div class="service-team-label">Команда</div>
-          <p class="service-team-text">Фінансову частину проєктів з SAF-T очолює керівник аудиторської практики (ex-EY), а розробку — архітектор складних технологічних рішень із багаторічним досвідом проєктування та реалізації масштабних систем в Україні та США.</p>
-        </div>
-        <a class="arrow-link on-dark" href="https://lucasua.com/saf-t/">Дізнатися більше</a>
-      </div>
-      <div class="service-features">
-
-        <!-- Рішення block -->
-        <div class="fc-divider">
-          <span class="fc-divider-label">Рішення</span>
-          <span class="fc-divider-line"></span>
-        </div>
-
-        <div class="fc" data-n="01">
-          <div class="fc-label">ERP-незалежність</div>
-          <div class="fc-title">Підключається до будь-яких джерел даних</div>
-          <p class="fc-body">На відміну від рішень, прив'язаних до однієї ERP, SAF-T Connector підключається до SAP, 1C/BAS, Odoo, Microsoft Dynamics, та будь-яких кастомних систем, і може працювати з кількома джерелами одночасно.</p>
-        </div>
-
-        <div class="fc" data-n="02">
-          <div class="fc-label">Продуктивність · Python</div>
-          <div class="fc-title">Швидко обробляє великі дані</div>
-          <p class="fc-body">Алгоритм написаний на Python і обробляє великі масиви транзакцій значно швидше за рішення, вбудовані в облікові системи. Для компаній з big data — принципова перевага.</p>
-        </div>
-
-        <div class="fc" data-n="03">
-          <div class="fc-label">Валідація</div>
-          <div class="fc-title">Серія перевірок даних</div>
-          <p class="fc-body">Автоматична валідація XSD та додаткові шари перевірок. Опис кожної помилки зрозумілою мовою. Результат — XML-файл SAF-T UA, що повністю відповідає вимогам ДПС.</p>
-        </div>
-
-        <div class="fc" data-n="04">
-          <div class="fc-label">On-premise · Безпека</div>
-          <div class="fc-title">Дані залишаються в інфраструктурі клієнта</div>
-          <p class="fc-body">Система встановлюється на сервері клієнта. Ніяких хмарних завантажень і передачі даних третім сторонам. Рішення не потребує доступу в інтернет для роботи.</p>
-        </div>
-
-        <!-- Впровадження block -->
-        <div class="fc-divider">
-          <span class="fc-divider-label">Впровадження</span>
-          <span class="fc-divider-line"></span>
-        </div>
-
-        <div class="fc" data-n="05">
-          <div class="fc-label">Turnkey · 3–4 місяці</div>
-          <div class="fc-title">Впровадження не стає проєктом клієнта</div>
-          <p class="fc-body">Клієнт надає доступ до даних — далі LUCAS працює автономно. Жодних внутрішніх проєктних команд з боку клієнта, нескінченних зустрічей і документів. Через 3–4 місяці клієнт отримує готовий продукт.</p>
-        </div>
-
-        <div class="fc" data-n="06">
-          <div class="fc-label">Єдина зона відповідальності</div>
-          <div class="fc-title">Один партнер, який відповідає за весь результат</div>
-          <p class="fc-body">Коли продукт постачає один підрядник, а впроваджує інший, відповідальність часто розмивається. LUCAS забезпечує єдину точку відповідальності за рішення, впровадження та практичний результат для клієнта.</p>
-        </div>
-
-        <div class="fc" data-n="07">
-          <div class="fc-label">Вартість · TCO</div>
-          <div class="fc-title">Найнижча повна вартість на ринку</div>
-          <p class="fc-body">LUCAS забезпечує повний цикл впровадження з найбільш конкурентною повною вартістю володіння на ринку. Клієнт не несе додаткових витрат на сторонніх консультантів.</p>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Chapter 03: Odoo -->
-    <div class="service-chapter" id="svc-odoo">
-      <div class="service-context">
-        <div class="service-num">// 03</div>
-        <h2 class="service-name">Міграція обліку з 1C / BAS на Odoo</h2>
-        <div class="service-accent"></div>
-        <p class="service-desc">Перехід з російського ПЗ на сучасну ERP-платформу — з фокусом на облікову методологію, коректне перенесення даних і відповідність вимогам звітності з першого дня роботи.</p>
-        <div class="service-team">
-          <div class="service-team-label">Команда</div>
-          <p class="service-team-text">Наша команда з переходу на Odoo ERP має глибокий практичний досвід впровадження Odoo для компаній України, Європи та Північної Америки, з всебічним розумінням архітектури системи, модулів, інтеграцій та бізнес-процесів.</p>
-        </div>
-        <a class="arrow-link on-dark" href="https://lucasua.com/odoo-migration/">Дізнатися більше</a>
-      </div>
-      <div class="service-features">
-
-        <!-- Чому Odoo block -->
-        <div class="fc-divider">
-          <span class="fc-divider-label">Чому Odoo</span>
-          <span class="fc-divider-line"></span>
-        </div>
-
-        <div class="fc" data-n="01">
-          <div class="fc-label">Правовий контекст · 2026</div>
-          <div class="fc-title">1C / BAS виходить за межі правового поля</div>
-          <p class="fc-body">Для держсектору — повна заборона (КМУ №1335). Для приватного — обмеження через санкційні списки РНБО. Законопроєкт №13505 передбачає штрафи до 2% річного обороту. Банки вже маркують компанії на 1C як ризикові.</p>
-        </div>
-
-        <div class="fc" data-n="02">
-          <div class="fc-label">Odoo у світі · №4 ERP</div>
-          <div class="fc-title">Мейнстрим глобального ринку ERP</div>
-          <p class="fc-body">175 країн, 15 млн користувачів, зростання вдвічі щороку. Toyota, Nokia, Nestlé, Airbus, Danone — серед клієнтів. Одна підписка охоплює 30+ модулів: бухгалтерію, CRM, склад, виробництво, HR.</p>
-        </div>
-
-        <div class="fc" data-n="03">
-          <div class="fc-label">TCO · Вартість володіння</div>
-          <div class="fc-title">На 70–80% нижча вартість ніж SAP або MS Dynamics</div>
-          <p class="fc-body">Прозора ліцензія — до €17.90 на користувача, без прихованих платежів. Жодного «технологічного рабства»: тисячі готових конекторів і величезна спільнота розробників замість дорогої кастомної розробки.</p>
-        </div>
-
-        <!-- Впровадження з LUCAS block -->
-        <div class="fc-divider">
-          <span class="fc-divider-label">Впровадження з LUCAS</span>
-          <span class="fc-divider-line"></span>
-        </div>
-
-        <div class="fc" data-n="04">
-          <div class="fc-label">Finance-first · Методологія</div>
-          <div class="fc-title">Архітектура, що будується навколо обліку</div>
-          <p class="fc-body">Нам не треба пояснювати що таке амортизація, подвійний запис або перша подія. LUCAS будує архітектуру системи навколо облікової логіки — це робить Odoo простішим у використанні і зменшує ризики помилок після запуску.</p>
-        </div>
-
-        <div class="fc" data-n="05">
-          <div class="fc-label">Аудитор + розробник</div>
-          <div class="fc-title">Усуваємо розрив між бухгалтерами і програмістами</div>
-          <p class="fc-body">Непорозуміння між фінансистами і розробниками — головне джерело затримок і перевитрат у будь-якому ERP-проєкті. Наші власні тандеми розуміють один одного з півслова. Це зберігає 30–40% вартості впровадження.</p>
-        </div>
-
-        <div class="fc" data-n="06">
-          <div class="fc-label">2–6 місяців · 6 етапів</div>
-          <div class="fc-title">Структурований перехід без ризику розриву в обліку</div>
-          <p class="fc-body">Аналіз → Архітектура → Кастомізація → Міграція даних → Тестування → Запуск. Паралельний облік до підтвердження коректності. Навчання команди і перехід на підтримку включені.</p>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Chapter 04: Transfer Pricing -->
-    <div class="service-chapter" id="svc-tp">
-      <div class="service-context">
-        <div class="service-num">// 04</div>
-        <h2 class="service-name">Трансфертне ціноутворення</h2>
-        <div class="service-accent"></div>
-        <p class="service-desc">Документація, аналіз і захист позиції по контрольованих операціях відповідно до ст. 39 ПКУ та настанов ОЕСР — для компаній з внутрішньогруповими операціями та трансакціями з пов'язаними особами.</p>
-        <div class="service-team">
-          <div class="service-team-label">Команда</div>
-          <p class="service-team-text">Практику очолює експерт, запрошений з податкових органів, який багато років відповідав за перевірку документації та звітності з ТЦУ, і володіє детальним розумінням підходів і критеріїв державного контролю.</p>
-        </div>
-        <a class="arrow-link on-dark" href="https://lucasua.com/transfer-pricing/">Дізнатися більше</a>
-      </div>
-      <div class="service-features">
-
-        <div class="fc-divider">
-          <span class="fc-divider-label">Документація та звітність</span>
-          <span class="fc-divider-line"></span>
-        </div>
-
-        <div class="fc" data-n="01">
-          <div class="fc-label">Ідентифікація · Ст. 39 ПКУ</div>
-          <div class="fc-title">Реєстр контрольованих операцій</div>
-          <p class="fc-body">Визначення кола пов'язаних осіб, ідентифікація контрольованих операцій і перевірка відповідності критеріям визнання операцій контрольованими згідно з актуальними вимогами ПКУ.</p>
-        </div>
-
-        <div class="fc" data-n="02">
-          <div class="fc-label">ОЕСР · МГК · Тристороння структура</div>
-          <div class="fc-title">Майстер-файл і локальний файл</div>
-          <p class="fc-body">Для учасників міжнародних груп компаній (МГК), що відповідають критеріям ПКУ: документація відповідно до тристоронньої структури ОЕСР, включаючи повідомлення про участь у МГК, майстер-файл і локальний файл.</p>
-        </div>
-
-        <div class="fc" data-n="03">
-          <div class="fc-label">Звітність · ДПС</div>
-          <div class="fc-title">Звіт про контрольовані операції</div>
-          <p class="fc-body">Підготовка та подача річного звіту КО до ДПС відповідно до форм і строків, встановлених ст. 39.4 ПКУ. Контроль повноти і коректності відображення всіх контрольованих операцій.</p>
-        </div>
-
-        <div class="fc-divider">
-          <span class="fc-divider-label">Аналіз та захист позиції</span>
-          <span class="fc-divider-line"></span>
-        </div>
-
-        <div class="fc" data-n="04">
-          <div class="fc-label">Benchmark · Принцип витягнутої руки</div>
-          <div class="fc-title">Порівняльний аналіз і ринковий діапазон</div>
-          <p class="fc-body">Пошук зіставних компаній у комерційних базах даних, статистичний аналіз ринкового діапазону (P25–P75) і документальне обґрунтування відповідності цін принципу «витягнутої руки» відповідно до ОЕСР.</p>
-        </div>
-
-        <div class="fc" data-n="05">
-          <div class="fc-label">TP Policies · APA</div>
-          <div class="fc-title">Внутрішньогрупові політики та попереднє ціноутворення</div>
-          <p class="fc-body">Розробка TP-policies для групи: методологія ціноутворення, договірна база, розподіл функцій і ризиків. Супровід переговорів з ДПС щодо попереднього узгодження цін (APA).</p>
-        </div>
-
-        <div class="fc" data-n="06">
-          <div class="fc-label">Tax Defense · Перевірки ДПС</div>
-          <div class="fc-title">Захист позиції під час податкових перевірок</div>
-          <p class="fc-body">Оцінка TP-ризиків до початку перевірки, підготовка аргументованих відповідей на запити ДПС, супровід під час перевірки та підготовка заперечень на акт у разі донарахувань.</p>
-        </div>
-
-      </div>
-    </div>
-
-  </section>
-
-
-  <!-- ============================================================
-       INDUSTRIES — Bento color cards (Amplemarket-inspired)
-       4 row-groups, each with category label + 2 colored facts + 1 wide text
-       ============================================================ -->
-  <section class="industries" id="industries">
-    <div class="container">
-
-      <div class="ind-intro reveal">
-        <div class="eyebrow">Галузеве покриття</div>
-      </div>
-
-      <h2 class="ind-tagline reveal" data-d="1">
-        <span class="ind-tagline-a">Клієнти та проєкти<span class="op">.</span></span>
-        <span class="ind-tagline-b">Світові лідери, національні бренди, складні консолідації.</span>
-      </h2>
-
-      <div class="bento reveal" data-d="2">
-
-        <!-- GROUP 01 · Світові лідери -->
-        <div class="bento-group">
-          <div class="bento-category">
-            <span class="bento-category-num">01</span>
-            <span class="bento-category-label">Світові лідери</span>
-            <span class="bento-category-rule"></span>
-          </div>
-          <div class="bento-row">
-            <article class="b-card b-fact b-cream">
-              <div class="b-num">TOP 5</div>
-              <div class="b-desc">Український бізнес одного з п'яти найдорожчих брендів світу</div>
-              <div class="b-tag">Global FMCG</div>
-            </article>
-            <article class="b-card b-fact b-mint">
-              <div class="b-num">TOP 10</div>
-              <div class="b-desc">Великий український банк, що входить в топ 10 банківських груп світу</div>
-              <div class="b-tag">Global Banking</div>
-            </article>
-            <article class="b-card b-text">
-              <span class="b-text-label">Global standards</span>
-              <p>Працюємо з українськими підрозділами глобальних груп, де результат має відповідати міжнародним стандартам, внутрішнім політикам і очікуванням материнських компаній.</p>
-            </article>
-          </div>
-        </div>
-
-        <!-- GROUP 02 · Національні лідери -->
-        <div class="bento-group">
-          <div class="bento-category">
-            <span class="bento-category-num">02</span>
-            <span class="bento-category-label">Національні лідери</span>
-            <span class="bento-category-rule"></span>
-          </div>
-          <div class="bento-row alt">
-            <article class="b-card b-text">
-              <span class="b-text-label">National scale</span>
-              <p>Наші клієнти — компанії, які задають масштаб, стандарти та динаміку розвитку українського бізнесу, формуючи національний ринок у своїх галузях.</p>
-            </article>
-            <article class="b-card b-fact b-blush">
-              <div class="b-num">2 / 2</div>
-              <div class="b-desc">Обидві найбільші медіагрупи України</div>
-              <div class="b-tag">Media</div>
-            </article>
-            <article class="b-card b-fact b-sky">
-              <div class="b-num">3 / 10</div>
-              <div class="b-desc">Три з десятки найбільших страхових компаній України</div>
-              <div class="b-tag">Insurance</div>
-            </article>
-          </div>
-        </div>
-
-        <!-- GROUP 03 · Охоплення індустрій -->
-        <div class="bento-group">
-          <div class="bento-category">
-            <span class="bento-category-num">03</span>
-            <span class="bento-category-label">Охоплення індустрій</span>
-            <span class="bento-category-rule"></span>
-          </div>
-          <div class="bento-row">
-            <article class="b-card b-fact b-cream">
-              <div class="b-num">HARD</div>
-              <div class="b-desc">Виробництво · агро · корисні копалини · будівництво · інфраструктура</div>
-              <div class="b-tag">Hard industries</div>
-            </article>
-            <article class="b-card b-fact b-sky">
-              <div class="b-num">SOFT</div>
-              <div class="b-desc">Страхування · медіабізнес · банкінг та фінанси · рітейл та дистрибуція · IT</div>
-              <div class="b-tag">Soft industries</div>
-            </article>
-            <article class="b-card b-text">
-              <span class="b-text-label">Industries</span>
-              <p>Маємо клієнтів у більшості галузей — від агро, виробництва та видобутку до фінансів, медіа, IT та рітейлу.</p>
-            </article>
-          </div>
-        </div>
-
-        <!-- GROUP 04 · Складні проєкти -->
-        <div class="bento-group">
-          <div class="bento-category">
-            <span class="bento-category-num">04</span>
-            <span class="bento-category-label">Складні проєкти</span>
-            <span class="bento-category-rule"></span>
-          </div>
-          <div class="bento-row alt">
-            <article class="b-card b-text">
-              <span class="b-text-label">Complex environments</span>
-              <p>Працюємо там, де дані розподілені між системами та швидко змінюються, але мають бути перетворені на якісну й прозору звітність.</p>
-            </article>
-            <article class="b-card b-fact b-mint">
-              <div class="b-num">&gt;100</div>
-              <div class="b-desc">Більше 100 компаній в одній консолідованій звітності</div>
-              <div class="b-tag">Group reporting</div>
-            </article>
-            <article class="b-card b-fact b-cream">
-              <div class="b-num">3×<sub class="b-sub">ERP</sub></div>
-              <div class="b-desc">Інтеграція трьох джерел даних для єдиного SAF-T-файлу компанії</div>
-              <div class="b-tag">Multi-source</div>
-            </article>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       FAQ — visible accordion, mirrors FAQPage JSON-LD schema
-       ============================================================ -->
-  <section class="faq" id="faq">
-    <div class="container">
-      <div class="faq-intro">
-        <div class="eyebrow">Часті запитання</div>
-        <h2 class="faq-title">Що варто знати<span class="op">.</span></h2>
-      </div>
-      <div class="faq-list">
-
-        <!-- АУДИТ -->
-        <div class="faq-item">
-          <button class="faq-q" type="button">Які компанії в Україні зобов'язані проходити обов'язковий аудит у 2026?</button>
-          <div class="faq-a"><div class="faq-a-inner">Обов'язковий аудит проходять підприємства суспільного інтересу (ПСІ), великі та середні підприємства відповідно до Закону «Про аудит фінансової звітності». До ПСІ належать публічні акціонерні товариства, банки, страховики та інші категорії. Перевірка виконується за Міжнародними стандартами аудиту з видачею аудиторського звіту. <a href="/lucas-website/audit/">Детальніше про аудит →</a></div></div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-q" type="button">Чим відрізняється аудит від огляду фінансової звітності?</button>
-          <div class="faq-a"><div class="faq-a-inner">Аудит надає обґрунтовану впевненість і виконується за повним обсягом процедур МСА з аудиторським звітом за МСА 700. Огляд (review) за МСА 2400 надає обмежену впевненість, виконується швидше і коштує менше — підходить коли повний аудит не вимагається законом, але потрібне підтвердження для банку або інвестора.</div></div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-q" type="button">Чи може аудиторська компанія одночасно вести облік і робити аудит?</button>
-          <div class="faq-a"><div class="faq-a-inner">Ні. Це пряма заборона за Міжнародним кодексом етики та МСА. Аудитор не може перевіряти звітність, яку сам підготував — це порушує принцип незалежності. LUCAS надає або аудит, або підготовку звітності для одного клієнта, але не обидві послуги одночасно.</div></div>
-        </div>
-
-        <!-- SAF-T -->
-        <div class="faq-item">
-          <button class="faq-q" type="button">Що таке SAF-T і кого це стосується в Україні?</button>
-          <div class="faq-a"><div class="faq-a-inner">SAF-T (Standard Audit File for Tax) — стандартизований XML-файл для передачі детальних облікових даних до Державної податкової служби. В Україні запроваджується поетапно, починаючи з великих платників податків. Файл містить всі господарські операції, первинні документи та довідники — тобто повний облік у структурованому форматі. <a href="/lucas-website/saf-t/">Детальніше про SAF-T Connector →</a></div></div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-q" type="button">Чи можна подавати SAF-T напряму з 1С/BAS, SAP або Odoo?</button>
-          <div class="faq-a"><div class="faq-a-inner">Вбудовані модулі SAF-T в 1С/BAS або SAP працюють тільки з однією системою і мають обмежену швидкість обробки. Якщо дані розподілені між кількома системами — потрібне окреме рішення. SAF-T Connector від LUCAS підключається до SAP, 1С/BAS, Odoo, Microsoft Dynamics та будь-яких кастомних систем одночасно.</div></div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-q" type="button">Які штрафи передбачені за неподачу SAF-T?</button>
-          <div class="faq-a"><div class="faq-a-inner">Неподача або несвоєчасна подача SAF-T розглядається як порушення податкового законодавства зі штрафними санкціями відповідно до Податкового кодексу. Окрім прямих штрафів, компанія ризикує підвищеною увагою ДПС, частішими перевірками та затримками відшкодування ПДВ.</div></div>
-        </div>
-
-        <!-- ТЦУ -->
-        <div class="faq-item">
-          <button class="faq-q" type="button">Хто зобов'язаний готувати документацію з трансфертного ціноутворення?</button>
-          <div class="faq-a"><div class="faq-a-inner">Компанії, що здійснюють контрольовані операції з пов'язаними особами або нерезидентами з низькоподаткових юрисдикцій — за умови досягнення вартісних критеріїв ст. 39 ПКУ. Перевірити чи підпадаєте ви під ці вимоги — перший крок, і саме тут найчастіше трапляються помилки. <a href="/lucas-website/transfer-pricing/">Детальніше про ТЦ →</a></div></div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-q" type="button">Що буде, якщо не подати звіт про контрольовані операції?</button>
-          <div class="faq-a"><div class="faq-a-inner">Штраф за неподачу звіту про КО встановлюється у відсотках від суми незадекларованих операцій. Якщо ДПС виявить що ціни не відповідають принципу «витягнутої руки» — донараховує податок на прибуток плюс штраф плюс пеня. Якісна документація з benchmark-аналізом — основний інструмент захисту.</div></div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-q" type="button">Що таке Master File і коли він потрібен для ТЦ?</button>
-          <div class="faq-a"><div class="faq-a-inner">Майстер-файл — частина тристоронньої структури документації ОЕСР: опис глобального бізнесу групи, функцій учасників і ризиків. Готується для учасників міжнародних груп компаній (МГК) разом із повідомленням про участь у МГК і локальним файлом. Без нього документація МГК є неповною.</div></div>
-        </div>
-
-        <!-- 1C → Odoo -->
-        <div class="faq-item">
-          <button class="faq-q" type="button">Чи заборонено 1С/BAS в Україні у 2026 році?</button>
-          <div class="faq-a"><div class="faq-a-inner">Для державного сектору — повна заборона згідно з Постановою КМУ №1335. Для приватного сектору — обмеження через санкційні списки РНБО та ризик штрафів до 2% річного обороту за законопроєктом №13505. Банки вже маркують компанії на 1С як ризикові. <a href="/lucas-website/odoo-migration/">Детальніше про перехід →</a></div></div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-q" type="button">Чим замінити 1С/BAS в Україні — реальні альтернативи 2026</button>
-          <div class="faq-a"><div class="faq-a-inner">Основні альтернативи: Odoo (4 місце у світі, TCO на 70–80% нижчий за SAP), SAP S/4HANA (для великих підприємств), Microsoft Dynamics 365 (для компаній у Microsoft-екосистемі). Для більшості українського середнього бізнесу Odoo є оптимальним вибором за функціональністю, вартістю та швидкістю впровадження.</div></div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-q" type="button">Скільки часу займає міграція з 1С на Odoo?</button>
-          <div class="faq-a"><div class="faq-a-inner">Від 2 до 6 місяців залежно від масштабу компанії та складності облікової структури. Малий бізнес — 2–3 місяці, середній з кількома юрособами — 4–6 місяців. Ключовий фактор швидкості: наявність у команді впровадження людей, які розуміють і облік, і технологію — без цього проєкт затягується і дорожчає.</div></div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       BLOG STRIP — 2 featured articles, compact link row
-       ============================================================ -->
-  <section class="blog-strip">
-    <div class="container">
-      <div class="blog-strip-inner">
-
-        <a class="bstrip-card" href="/blog/zaborona-1c-2026/">
-          <div class="bstrip-left">
-            <span class="bstrip-cat">ERP та облік</span>
-            <h3 class="bstrip-title">Заборона 1С в Україні 2026: що робити бізнесу</h3>
-          </div>
-          <span class="bstrip-arrow">→</span>
-        </a>
-
-        <a class="bstrip-card" href="/blog/saf-t-ukraina-povny-gayd/">
-          <div class="bstrip-left">
-            <span class="bstrip-cat">Податковий облік</span>
-            <h3 class="bstrip-title">SAF-T в Україні: повний гайд для бухгалтера</h3>
-          </div>
-          <span class="bstrip-arrow">→</span>
-        </a>
-
-        <a class="bstrip-card" href="/blog/zvit-pro-kontrolovani-operatsii/">
-          <div class="bstrip-left">
-            <span class="bstrip-cat">Трансфертне ціноутворення</span>
-            <h3 class="bstrip-title">Хто зобов'язаний подавати звіт про контрольовані операції</h3>
-          </div>
-          <span class="bstrip-arrow">→</span>
-        </a>
-
-        <a class="bstrip-card" href="/blog/ifrs-1-pershyy-perehid-msfz/">
-          <div class="bstrip-left">
-            <span class="bstrip-cat">МСФЗ та звітність</span>
-            <h3 class="bstrip-title">IFRS 1: перший перехід на МСФЗ — покрокова інструкція</h3>
-          </div>
-          <span class="bstrip-arrow">→</span>
-        </a>
-
-        <a class="bstrip-more" href="/blog/">Усі матеріали →</a>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       CONTACT — Editorial closing spread
-       Statement+ledger | Form residency (no logo, signature corner)
-       ============================================================ -->
-  <section class="contact" id="contact">
-    <div class="container">
-
-      <div class="contact-intro reveal">
-        <div class="eyebrow cyan-dot">Start the conversation</div>
-      </div>
-
-      <h2 class="contact-tagline reveal" data-d="1">
-        <span class="contact-tagline-a">Початок розмови<span class="op">.</span></span>
-        <span class="contact-tagline-b">Найкращі проєкти починаються з гарного знайомства.</span>
-      </h2>
-
-      <div class="contact-spread">
-
-        <!-- LEFT: Statement + ledger + hours -->
-        <div class="contact-statement reveal" data-d="2">
-          <p class="contact-statement-q">
-            Якщо перед вами стоять завдання в сфері обліку, податків чи <em>цифрової трансформації фінансів</em> — напишіть нам.
-          </p>
-          <p class="contact-statement-p">
-            Команда LUCAS прочитає вашу задачу та зв'яжеться протягом одного робочого дня. Без формальних опитувальників — одразу по суті.
-          </p>
-
-          <div class="contact-ledger">
-            <div class="ledger-row">
-              <span class="lr-label">Телефон</span>
-              <a class="lr-value" href="tel:+380443447915">+380 44 344 7915</a>
-              <span class="lr-hint">Пн–Пт</span>
-            </div>
-            <div class="ledger-row">
-              <span class="lr-label">Email</span>
-              <button class="lr-value email-reveal" id="contact-email-reveal" type="button">Показати email</button>
-              <span class="lr-hint">24 / 7</span>
-            </div>
-            <div class="ledger-row">
-              <span class="lr-label">Офіс</span>
-              <span class="lr-value small">пл. Спортивна 1а, БЦ Гулівер<br>Вежа А, 17 поверх · м. Київ, 01601</span>
-              <span class="lr-hint">UA</span>
-            </div>
-          </div>
-
-          <div class="contact-hours">
-            <div class="contact-hours-cell">
-              <span class="ch-val">&lt; 24<span class="ch-unit">год</span></span>
-              <span class="ch-label">Time to reply</span>
-            </div>
-            <div class="contact-hours-cell">
-              <span class="ch-val">UTC<span class="ch-unit">+2</span></span>
-              <span class="ch-label">Working zone</span>
-            </div>
-            <div class="contact-hours-cell">
-              <span class="ch-val">UA · EN</span>
-              <span class="ch-label">Languages</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- RIGHT: Form residency -->
-        <aside class="contact-residency has-corner reveal" data-d="3">
-          <div class="residency-head">
-            <span class="residency-title">Надіслати запит</span>
-            <span class="residency-meta">RES · #001</span>
-          </div>
-          <p class="residency-sub">Коротко опишіть задачу — повернемось до вас на наступний робочий день.</p>
-
-          <form class="residency-form" id="lucas-contact-form" novalidate>
-            <div class="field">
-              <input type="text" id="cf-name" name="name" placeholder=" " required autocomplete="name">
-              <label for="cf-name" class="field-label">Ім'я</label>
-            </div>
-            <div class="field">
-              <input type="email" id="cf-email" name="email" placeholder=" " required autocomplete="email">
-              <label for="cf-email" class="field-label">Email</label>
-            </div>
-            <div class="field">
-              <input type="tel" id="cf-phone" name="phone" placeholder=" " required autocomplete="tel">
-              <label for="cf-phone" class="field-label">Телефон</label>
-            </div>
-            <div class="field">
-              <textarea id="cf-message" name="message" placeholder=" " required rows="4"></textarea>
-              <label for="cf-message" class="field-label">Коротко про задачу</label>
-            </div>
-            <!-- Honeypot — прихована пастка для ботів, люди не бачать і не заповнюють -->
-            <div class="hp-field" aria-hidden="true">
-              <input type="text" name="website" tabindex="-1" autocomplete="off">
-            </div>
-            <button type="submit" class="residency-submit" id="lucas-submit">
-              Надіслати запит <span class="arrow"></span>
-            </button>
-            <div class="residency-foot">Без формальних опитувальників · одразу до справи</div>
-          </form>
-        </aside>
-
-      </div>
-    </div>
-  </section>
-</main>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-inner">
-
-    <div class="footer-grid">
-
-      <!-- Brand -->
-      <div class="footer-brand">
-        <a class="footer-mark" href="#top" aria-label="LUCAS">
-          <svg class="logo-svg" aria-hidden="true"><use href="#lucas-mark"/></svg>
-        </a>
-        <p class="footer-tagline">Аудит, технологія і досвід — в одній команді<span class="op">.</span></p>
-        <p class="footer-legal">ТОВ «Лукас Аудит»<br>Аудиторська та технологічна компанія</p>
-      </div>
-
-      <!-- Services -->
-      <div>
-        <div class="footer-col-label">Послуги</div>
-        <ul>
-          <li><a href="/audit/">Аудит та звітність</a></li>
-          <li><a href="/saf-t/">SAF-T Connector</a></li>
-          <li><a href="/odoo-migration/">Міграція на Odoo</a></li>
-          <li><a href="/transfer-pricing/">Трансфертне ціноутворення</a></li>
-        </ul>
-      </div>
-
-      <!-- Company -->
-      <div>
-        <div class="footer-col-label">Компанія</div>
-        <ul>
-          <li><a href="#audit">Аудит як ядро</a></li>
-          <li><a href="#industries">Галузі</a></li>
-          <li><a href="#faq">Питання</a></li>
-          <li><a href="/blog/">Блог</a></li>
-          <li><a href="/documents/">Документи</a></li>
-          <li><a href="#contact">Контакти</a></li>
-        </ul>
-      </div>
-
-      <!-- Contacts -->
-      <div class="footer-contact">
-        <div class="footer-col-label">Зв'язатись</div>
-        <div class="footer-contact-row">
-          <span class="footer-contact-lbl">Email</span>
-          <button class="footer-contact-val email-reveal" id="footer-email-reveal" type="button">Показати email</button>
-        </div>
-        <div class="footer-contact-row">
-          <span class="footer-contact-lbl">Телефон</span>
-          <a class="footer-contact-val" href="tel:+380443447915">+380 44 344 7915</a>
-        </div>
-        <div class="footer-contact-row">
-          <span class="footer-contact-lbl">Адреса</span>
-          <span class="footer-contact-val">м. Київ, пл. Спортивна 1а<br>БЦ Гулівер, Вежа А, 17 пов.</span>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="footer-bot">
-      <span class="footer-bot-copy">© <span id="footer-year"></span> LUCAS · ТОВ «Лукас Аудит» · All rights reserved</span>
-      <a class="footer-bot-cta" href="#contact">Обговорити проєкт →</a>
-    </div>
-
-  </div>
-</footer>
-
-<script>
-  // Header transforms when scrolling past hero
-  (() => {
-    const header = document.getElementById('header');
-    const scrim  = document.getElementById('page-scrim');
-    const hero   = document.querySelector('.hero');
-    if (!header || !hero) return;
-    const onScroll = () => {
-      const heroBottom = hero.getBoundingClientRect().bottom;
-      const past = heroBottom <= 60;
-      header.classList.toggle('scrolled', past);
-      if (scrim) scrim.classList.toggle('light', past);
-    };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll);
-  })();
-
-  // ─── STABLE POSITION HELPER ───────────────────────────────────────────────
-  // getBoundingClientRect() is unreliable for sticky elements (returns stuck pos).
-  // Traversing the offsetParent chain always gives the NATURAL document position.
-  function stableTop(el) {
-    let top = 0, cur = el;
-    while (cur) { top += cur.offsetTop; cur = cur.offsetParent; }
-    return top;
-  }
-
-  // ─── CARD CONSTANTS (must match CSS #id { top:Xpx } rules) ───────────────
-  const CARD_IDS  = ['prod-audit', 'prod-saft', 'prod-odoo', 'prod-tp'];
-  // All cards share top:78px — simultaneous stick/unstick as a group.
-  const CARD_TOPS = { 'prod-audit':78, 'prod-saft':78, 'prod-odoo':78, 'prod-tp':78 };
-
-  // ─── MOBILE: clear inline top so media query override works ────────────
-  // Desktop: top is set via HTML inline style (authoritative, no JS needed).
-  // Mobile:  CSS has top:auto !important which beats inline style, but
-  //          we also clear it from JS to be safe with cross-browser quirks.
-  function isMobileLayout() { return window.matchMedia('(max-width: 1080px)').matches; }
-
-  function clearMobileTops() {
-    if (!isMobileLayout()) return;
-    CARD_IDS.forEach(id => {
-      const el = document.getElementById(id);
-      if (el) el.style.removeProperty('top');
-    });
-  }
-  clearMobileTops();
-  window.addEventListener('resize', clearMobileTops);
-
-  // ─── ASIDE WRAPPER CALIBRATION ────────────────────────────────────────────
-  // Wrapper height controls when sticky aside stops.
-  // Target: aside stops exactly when card 4 has settled on card 3.
-  (() => {
-    const wrapper = document.querySelector('.aside-wrapper');
-    const aside   = document.querySelector('.solutions-aside');
-    const card4   = document.getElementById('prod-tp');
-    if (!wrapper || !aside || !card4) return;
-
-    function calibrate() {
-      // On mobile, sticky is disabled — let wrapper height be auto
-      if (isMobileLayout()) {
-        wrapper.style.removeProperty('height');
-        return;
-      }
-      // stableTop gives natural document position regardless of sticky state
-      const card4NatTop   = stableTop(card4);
-      const settleScrollY = card4NatTop - CARD_TOPS['prod-tp'];
-      const wrapperNatTop = stableTop(wrapper);
-      const asideH        = aside.offsetHeight || (window.innerHeight - 136);
-
-      // At scrollY = settleScrollY, aside (top:68px) is at docY = settleScrollY + 68.
-      // wrapper must end at (settleScrollY + 78 + asideH) to stop aside there.
-      const wrapperH = settleScrollY + 78 + asideH - wrapperNatTop;
-      wrapper.style.height = Math.max(wrapperH, asideH + 80) + 'px';
-    }
-
-    window.addEventListener('load',   calibrate);
-    window.addEventListener('resize', calibrate);
-    requestAnimationFrame(() => requestAnimationFrame(calibrate));
-  })();
-
-  // ─── PRODUCT HEADER CLICK — scroll so target card's body is visible ───────
-  // Logic: to show card N, scroll to just BEFORE card N+1 would stick.
-  // scrollTarget = card(N+1).naturalTop - card(N+1).stickyTop - 1
-  // At that scrollY: card N+1 hasn't reached its sticky point → card N is active.
-  //
-  // Precompute natural tops ONCE. stableTop() is used so sticky state doesn't matter.
-  const cardNatTops = {};
-  CARD_IDS.forEach(id => {
-    const el = document.getElementById(id);
-    if (el) cardNatTops[id] = stableTop(el);
-  });
-
-  document.querySelectorAll('.product-header').forEach(header => {
-    header.addEventListener('click', e => {
-      e.preventDefault();
-      e.stopImmediatePropagation();
-
-      const card   = header.closest('.product');
-      const cardId = card.id;
-      const idx    = CARD_IDS.indexOf(cardId);
-
-      let targetScrollY;
-
-      if (idx < CARD_IDS.length - 1) {
-        // Cards 1-3: scroll to just before NEXT card takes over
-        const nextId  = CARD_IDS[idx + 1];
-        // Scroll so next card's top is just below viewport → current card's body fully visible
-        targetScrollY = cardNatTops[nextId] - window.innerHeight;
-      } else {
-        // Card 4 (last): scroll to show its own body
-        targetScrollY = cardNatTops[cardId] - CARD_TOPS[cardId];
-      }
-
-      window.scrollTo({ top: Math.max(0, targetScrollY), behavior: 'smooth' });
-    });
-  });
-
-  // ─── SERVICE CHAPTERS — sync left context + right cards ─────────────────
-  // Observe the whole chapter so context (left) and cards (right) appear together.
-  // Context: immediate. Cards: gentle stagger starting at same moment.
-  (() => {
-    const cardDelays = [0, 80, 170, 255, 345]; // organic, not linear
-
-    document.querySelectorAll('.service-chapter').forEach(chapter => {
-      const context = chapter.querySelector('.service-context');
-      const cards   = Array.from(chapter.querySelectorAll('.fc'));
-
-      const io = new IntersectionObserver(entries => {
-        if (!entries[0].isIntersecting) return;
-        // Left panel — immediate
-        if (context) context.classList.add('is-visible');
-        // Right cards — staggered from same moment
-        cards.forEach((card, i) => {
-          setTimeout(() => card.classList.add('is-visible'), cardDelays[i] ?? i * 85);
-        });
-        io.disconnect();
-      }, { threshold: 0.05 });
-
-      io.observe(chapter);
-    });
-  })();
-
-  // Reveal on scroll
-  (() => {
-    const items = document.querySelectorAll('.reveal:not(.in)');
-    if (!items.length || !('IntersectionObserver' in window)) {
-      items.forEach(el => el.classList.add('in'));
-      return;
-    }
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('in');
-          io.unobserve(e.target);
-        }
-      });
-    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
-    items.forEach(el => io.observe(el));
-  })();
-
-  // Solutions scroll-spy — highlight active product in sticky nav
-  (() => {
-    const navItems = document.querySelectorAll('.solutions-nav-item');
-    const products = document.querySelectorAll('.product[id]');
-    if (!navItems.length || !products.length || !('IntersectionObserver' in window)) return;
-
-    const navByTarget = new Map();
-    navItems.forEach(item => navByTarget.set(item.dataset.target, item));
-
-    const setActive = (id) => {
-      navItems.forEach(i => i.classList.remove('is-active'));
-      const active = navByTarget.get(id);
-      if (active) active.classList.add('is-active');
-    };
-
-    const io = new IntersectionObserver((entries) => {
-      const visible = entries.filter(e => e.isIntersecting);
-      if (!visible.length) return;
-      visible.sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-      setActive(visible[0].target.id);
-    }, { rootMargin: '-30% 0px -55% 0px', threshold: 0 });
-    products.forEach(p => io.observe(p));
-  })();
-
-  // Smooth anchor scroll — generic (product-header clicks are handled above)
-  document.querySelectorAll('a[href^="#"]').forEach((a) => {
-    if (a.closest('.product-header')) return; // skip — handled by product-header JS
-    a.addEventListener('click', (e) => {
-      const id = a.getAttribute('href');
-      if (!id || id === '#') return;
-      const target = document.querySelector(id);
-      if (!target) return;
-      e.preventDefault();
-      const top = target.getBoundingClientRect().top + window.pageYOffset - 68;
-      window.scrollTo({ top, behavior: 'smooth' });
-    });
-  });
-  // ─── EMAIL REVEAL — address assembled only on user click ─────────────────
-  (() => {
-    const u = 'info', d = 'lucasua' + '.com';
-    const yr = document.getElementById('footer-year');
-    if (yr) yr.textContent = new Date().getFullYear();
-    document.querySelectorAll('.cur-year').forEach(el => el.textContent = new Date().getFullYear());
-
-    const setup = (btnId, isFooter) => {
-      const btn = document.getElementById(btnId);
-      if (!btn) return;
-      btn.addEventListener('click', () => {
-        const addr = u + '\u0040' + d;
-        const a = document.createElement('a');
-        a.href = 'mailto:' + addr;
-        a.textContent = addr;
-        a.className = isFooter ? 'footer-contact-val' : 'lr-value';
-        if (isFooter) a.style.color = 'rgba(255,255,255,.6)';
-        btn.replaceWith(a);
-      }, { once: true });
-    };
-    setup('contact-email-reveal', false);
-    setup('footer-email-reveal', true);
-  })();
-
-  // ─── CONTACT FORM — validation + honeypot + EmailJS (keys pending) ──────────
-  (() => {
-    const form   = document.getElementById('lucas-contact-form');
-    const btn    = document.getElementById('lucas-submit');
-    if (!form || !btn) return;
-
-    let submitted = false;
-
-    // Validation rules
-    const validators = {
-      name:    v => v.trim().length >= 2,
-      email:   v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()),
-      phone:   v => /^[\+]?[\d\s\-\(\)]{7,20}$/.test(v.trim()),
-      message: v => v.trim().length >= 5,
-    };
-
-    const errorMessages = {
-      name:    'Введіть ім\'я',
-      email:   'Введіть коректний email (наприклад: name@company.com)',
-      phone:   'Введіть коректний номер телефону',
-      message: 'Опишіть задачу коротко',
-    };
-
-    function validateField(input) {
-      const name = input.name;
-      const ok   = validators[name] ? validators[name](input.value) : input.value.trim().length > 0;
-      const wrap  = input.closest('.field');
-      let   err   = wrap && wrap.querySelector('.field-err-msg');
-
-      if (!ok) {
-        input.classList.add('field-error');
-        if (wrap && !err) {
-          err = document.createElement('span');
-          err.className = 'field-err-msg';
-          wrap.appendChild(err);
-        }
-        if (err) err.textContent = errorMessages[name] || 'Невірний формат';
-      } else {
-        input.classList.remove('field-error');
-        if (err) err.remove();
-      }
-      return ok;
-    }
-
-    // Validate on blur
-    form.querySelectorAll('input[name], textarea[name]').forEach(f => {
-      f.addEventListener('blur', () => { if (f.value) validateField(f); });
-      f.addEventListener('input', () => {
-        if (f.classList.contains('field-error')) validateField(f);
-      });
-    });
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      // Honeypot
-      if (form.querySelector('[name="website"]').value) return;
-      if (submitted) return;
-
-      // Validate all fields
-      const fields  = Array.from(form.querySelectorAll('input[name], textarea[name]'))
-                          .filter(f => f.name !== 'website');
-      const allOk   = fields.map(validateField).every(Boolean);
-      if (!allOk) {
-        const first = form.querySelector('.field-error');
-        if (first) first.scrollIntoView({ behavior:'smooth', block:'center' });
-        return;
-      }
-
-      submitted = true;
-      btn.disabled = true;
-      btn.innerHTML = 'Надсилається…';
-
-      try {
-        await emailjs.send('service_ocdfpq8', 'template_wz7w36q', {
-          from_name: form.querySelector('[name="name"]').value.trim(),
-          reply_to:  form.querySelector('[name="email"]').value.trim(),
-          phone:     form.querySelector('[name="phone"]').value.trim(),
-          message:   form.querySelector('[name="message"]').value.trim(),
-        });
-        btn.innerHTML        = '✓ Запит надіслано';
-        btn.style.background = 'var(--orange)';
-        btn.style.borderColor= 'var(--orange)';
-        btn.style.color      = '#fff';
-        form.reset();
-        form.querySelectorAll('.field-err-msg').forEach(e => e.remove());
-      } catch (err) {
-        btn.disabled  = false;
-        submitted     = false;
-        btn.innerHTML = 'Надіслати запит <span class="arrow"></span>';
-        const errMsg  = document.createElement('p');
-        errMsg.style.cssText = 'color:rgba(255,92,31,.9);font-size:13px;margin-top:10px;font-family:var(--mono)';
-        errMsg.textContent   = 'Помилка відправки. Спробуйте ще раз або напишіть на info@lucasua.com';
-        btn.parentNode.insertBefore(errMsg, btn.nextSibling);
-        setTimeout(() => errMsg.remove(), 6000);
-      }
-    });
-  })();
-
-  // ─── FAQ ACCORDION ──────────────────────────────────────────────────────
-  (() => {
-    document.querySelectorAll('.faq-item').forEach(item => {
-      const q = item.querySelector('.faq-q');
-      const a = item.querySelector('.faq-a');
-      if (!q || !a) return;
-      q.addEventListener('click', () => {
-        const isOpen = item.classList.contains('is-open');
-        document.querySelectorAll('.faq-item.is-open').forEach(other => {
-          other.classList.remove('is-open');
-          other.querySelector('.faq-a').style.maxHeight = '0';
-        });
-        if (!isOpen) {
-          item.classList.add('is-open');
-          a.style.maxHeight = a.scrollHeight + 'px';
-        }
-      });
-    });
-  })();
-
-</script>
-
-</body>
-</html>
-</style>
-</head>
-<body id="top">
-
-<svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false">
-  <symbol id="lucas-mark" viewBox="0 0 500.61676 68.570709" preserveAspectRatio="xMidYMid meet">
-    <g
-    transform="matrix(1.9896013,0,0,1.9896013,-727.29754,-416.35915)">
-    <path
-    d="m 584.65003,209.37028 c 3.17869,-0.18949 7.79551,-0.0426 11.08728,-0.0404 l 21.15683,0.0181 c -1.49489,1.79613 -2.38357,3.03422 -3.56494,5.04663 -9.17288,0.48876 -18.7196,-0.15943 -27.91953,0.19116 -5.06383,0.19295 -6.46293,6.38514 -2.35475,8.70446 1.42171,0.8027 4.82435,0.63281 6.52988,0.62683 l 11.9875,-0.0418 c 2.18003,-0.007 6.22213,-0.13167 8.22655,0.29072 1.4838,0.30896 2.86871,0.97902 4.0319,1.95108 1.90375,1.57339 3.08734,3.85186 3.2798,6.31436 0.5419,6.17734 -2.91484,10.68108 -9.13918,11.21899 -4.77647,0.15565 -9.9853,0.0346 -14.79059,0.035 -5.87135,0.001 -12.07751,0.11841 -17.93202,-0.0732 1.09356,-0.97427 2.75918,-3.67624 3.839,-5.03544 l 18.54177,-0.0164 c 3.3104,0.002 6.60483,0.0275 9.92011,-0.0373 4.8115,-0.0945 6.10683,-7.47711 1.52416,-8.99817 -1.68647,-0.55964 -4.30773,-0.40576 -6.12989,-0.39733 l -11.58307,0.0435 c -4.3636,0.003 -9.25182,0.47095 -12.8141,-2.51795 -3.84298,-3.22392 -4.20529,-10.32116 -0.94456,-14.06384 1.94855,-2.23613 4.18711,-3.00614 7.04785,-3.21905 z"
-    style="fill:currentColor;stroke-width:0.443456" />
-    <path
-    d="m 509.26077,209.26815 0.0537,0.12821 c -0.98048,1.51258 -2.3614,3.80058 -3.44166,5.14586 -3.09133,-0.21517 -7.04518,-0.0821 -10.16356,-0.0493 l -11.67885,0.0232 c -4.11571,0.0176 -7.73254,0.31561 -10.77686,3.51518 -6.24608,6.56506 -3.26783,17.94679 5.65539,20.19201 1.47493,0.32683 3.07182,0.38137 4.5769,0.35742 8.22345,-0.13259 16.50277,0.13526 24.71779,0.0266 -1.05498,1.40354 -1.79068,2.99244 -2.94588,4.29842 -0.61108,0.69135 -0.89578,0.73436 -1.76407,0.76718 -4.23101,0.0944 -8.57865,0.0474 -12.81232,0.008 -7.51702,-0.17561 -14.3724,1.28559 -20.41227,-4.25584 -10.08507,-9.25271 -6.29397,-26.35317 7.18043,-29.70915 2.57249,-0.64066 6.6514,-0.39835 9.34628,-0.39671 l 14.13471,0.0241 c 2.54544,0.005 5.84741,0.0967 8.33032,-0.0757 z"
-    style="fill:currentColor;stroke-width:0.443456" />
-    <path
-    d="m 410.53731,209.3023 c 1.77426,0.009 3.54764,0.0482 5.32058,0.11898 l -0.003,0.23348 -0.0594,12.98523 c -0.005,7.54087 -0.7827,15.88671 9.94183,15.97274 1.92638,0.0155 3.92902,0.0129 5.85185,-0.039 2.85053,-0.0772 6.2443,0.28913 8.98751,-0.47272 1.28824,-0.34945 2.46118,-1.03148 3.40175,-1.97782 3.49178,-3.46648 2.64877,-9.18663 2.64655,-13.78003 l 0.0523,-13.01534 5.39286,0.0405 -0.003,4.9632 c -0.007,5.08675 0.0687,10.23878 -0.0146,15.32211 -0.0679,4.1197 -1.18891,7.52544 -4.26871,10.39371 -4.59287,4.27758 -9.46911,3.63412 -15.21408,3.64299 -2.90463,-0.003 -5.82523,0.007 -8.7281,-0.0355 -5.96315,-0.0869 -11.51255,-4.04255 -12.81853,-10.00969 -0.86917,-3.97292 -0.53259,-8.3312 -0.55698,-12.40346 -0.0239,-3.93318 -0.0705,-8.01144 0.0714,-11.93938 z"
-    style="fill:currentColor;stroke-width:0.443456" />
-    <path
-    d="m 540.09602,209.36607 c 1.38092,-0.0938 2.87226,-0.006 4.24742,0.11889 0.50909,1.09245 3.02925,4.67815 3.85141,5.89109 l 6.64741,9.91217 c 2.94987,4.36094 5.74319,8.83365 8.80348,13.12852 1.19778,1.68114 2.40132,3.66249 3.70108,5.23854 -2.22171,0 -4.49087,0.0266 -6.70726,-0.0652 -1.55432,-2.00885 -3.77736,-5.47224 -5.22524,-7.65316 l -7.14009,-10.67442 c -1.85852,-2.82477 -3.85185,-6.02785 -5.8239,-8.73755 l -0.82439,-1.0399 c -0.93657,1.96815 -2.39599,3.98281 -3.5982,5.82296 -2.43279,3.72433 -5.04785,7.30568 -7.53298,10.99745 l -4.9871,7.47179 c -0.67361,1.00709 -1.90908,3.08733 -2.72992,3.82037 -1.87936,0.14191 -4.2962,0.0705 -6.21725,0.0639 2.0266,-2.75119 4.72192,-7.07091 6.67623,-10.02342 L 533.924,217.80609 c 0.83503,-1.22323 5.33212,-8.18242 6.17202,-8.43998 z"
-    style="fill:currentColor;stroke-width:0.443456" />
-    <path
-    d="m 365.68867,209.27711 5.24324,0.0845 c -0.0655,9.47453 -0.13725,19.71241 0.0397,29.14294 7.85387,0.20267 15.75816,-0.0426 23.61722,0.0856 1.99998,0.0328 4.08822,0.0789 6.07712,-0.0519 -0.66874,0.83326 -1.46208,2.07449 -2.07671,2.98534 -0.61019,0.89268 -0.88425,1.31706 -1.67537,2.08158 -2.9849,0.20134 -7.17831,0.0936 -10.24086,0.098 l -21.00366,-0.0226 c -0.10443,-11.15468 -0.21592,-23.28963 0.0193,-34.40344 z"
-    style="fill:currentColor;stroke-width:0.443456" />
-  </g>
-  </symbol>
-</svg>
-
-<header class="header" id="header">
-  <div class="header-inner">
-    <a class="logo" href="https://lucasukraine.github.io/lucas-website/" aria-label="LUCAS — на головну">
-      <svg class="logo-svg" aria-hidden="true"><use href="#lucas-mark"/></svg>
-    </a>
-    <nav class="nav">
-      <a href="https://lucasukraine.github.io/lucas-website/#audit">Аудит</a>
-      <a href="https://lucasukraine.github.io/lucas-website/#solutions">Послуги</a>
-      <a href="https://lucasukraine.github.io/lucas-website/#industries">Галузі</a>
-      <a href="https://lucasukraine.github.io/lucas-website/blog/">Блог</a>
-      <a href="https://lucasukraine.github.io/lucas-website/#contact">Контакти</a>
-    </nav>
-    <a class="header-cta" href="https://lucasukraine.github.io/lucas-website/#contact">Обговорити проєкт</a>
-  </div>
-</header>
-
-<main>
-  <section class="blog-hero">
-    <div class="blog-hero-deco" aria-hidden="true"></div>
-    <div class="blog-hero-inner">
-      <div class="art-eyebrow">База знань</div>
-      <h1 class="blog-hero-h1">Експертні матеріали<span class="op">.</span></h1>
-      <p class="blog-hero-lead">Гайди, аналітика та практичні відповіді на питання, з якими стикаються фінансові директори і головні бухгалтери у 2026 році. Аудит, МСФЗ, SAF-T, трансфертне ціноутворення, перехід на Odoo.</p>
-    </div>
-  </section>
-
-  <section class="blog-list">
-    <div class="blog-list-inner">
-      <div class="blog-grid">
-        <a class="blog-card" href="https://lucasukraine.github.io/lucas-website/blog/zaborona-1c-2026/">
-          <div class="blog-card-meta">
-            <span class="blog-card-cat">ERP та облік</span>
-            <span>12 хв читання</span>
-          </div>
-          <h2 class="blog-card-h2">Заборона 1С в Україні 2026</h2>
-          <p class="blog-card-excerpt">Постанова КМУ №1335, санкційні списки РНБО, законопроєкт №13505 зі штрафами до 2% річного обороту — використання 1С/BAS/BAF в Україні стає не лише репутаційним, а й прямим фінансов...</p>
-          <div class="blog-card-foot">15 січня 2026 · LUCAS</div>
-        </a>
-        <a class="blog-card" href="https://lucasukraine.github.io/lucas-website/blog/saf-t-ukraina-povny-gayd/">
-          <div class="blog-card-meta">
-            <span class="blog-card-cat">Податковий облік</span>
-            <span>15 хв читання</span>
-          </div>
-          <h2 class="blog-card-h2">SAF-T в Україні</h2>
-          <p class="blog-card-excerpt">Standard Audit File for Tax (SAF-T) — формат стандартизованої передачі облікових даних у Державну податкову службу. У 2026 році вимога подавати SAF-T поширюється на дедалі ширше ко...</p>
-          <div class="blog-card-foot">8 лютого 2026 · LUCAS</div>
-        </a>
-        <a class="blog-card" href="https://lucasukraine.github.io/lucas-website/blog/zvit-pro-kontrolovani-operatsii/">
-          <div class="blog-card-meta">
-            <span class="blog-card-cat">Трансфертне ціноутворення</span>
-            <span>14 хв читання</span>
-          </div>
-          <h2 class="blog-card-h2">Хто подає звіт про контрольовані операції</h2>
-          <p class="blog-card-excerpt">Звіт про контрольовані операції — одна з найскладніших ділянок податкової звітності. Помилка у визначенні кола повʼязаних осіб або пропуск операції коштує мільйони у вигляді донара...</p>
-          <div class="blog-card-foot">12 березня 2026 · LUCAS</div>
-        </a>
-        <a class="blog-card" href="https://lucasukraine.github.io/lucas-website/blog/ifrs-1-pershyy-perehid-msfz/">
-          <div class="blog-card-meta">
-            <span class="blog-card-cat">МСФЗ та звітність</span>
-            <span>13 хв читання</span>
-          </div>
-          <h2 class="blog-card-h2">IFRS 1: перший перехід на МСФЗ</h2>
-          <p class="blog-card-excerpt">Перша звітність за МСФЗ — це окремий стандарт МСФЗ 1, який встановлює методологію всього процесу: від визначення дати переходу до облікової політики, обовʼязкових винятків і добров...</p>
-          <div class="blog-card-foot">5 квітня 2026 · LUCAS</div>
-        </a>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer class="footer">
-  <div class="footer-inner">
-
-    <div class="footer-grid">
-
-      <!-- Brand -->
-      <div class="footer-brand">
-        <a class="footer-mark" href="#top" aria-label="LUCAS">
-          <svg class="logo-svg" aria-hidden="true"><use href="#lucas-mark"/></svg>
-        </a>
-        <p class="footer-tagline">Аудит, технологія і досвід — в одній команді<span class="op">.</span></p>
-        <p class="footer-legal">ТОВ «Лукас Аудит»<br>Аудиторська та технологічна компанія</p>
-      </div>
-
-      <!-- Services -->
-      <div>
-        <div class="footer-col-label">Послуги</div>
-        <ul>
-          <li><a href="/lucas-website/audit/">Аудит та звітність</a></li>
-          <li><a href="/lucas-website/saf-t/">SAF-T Connector</a></li>
-          <li><a href="/lucas-website/odoo-migration/">Міграція на Odoo</a></li>
-          <li><a href="/lucas-website/transfer-pricing/">Трансфертне ціноутворення</a></li>
-        </ul>
-      </div>
-
-      <!-- Company -->
-      <div>
-        <div class="footer-col-label">Компанія</div>
-        <ul>
-          <li><a href="#audit">Аудит як ядро</a></li>
-          <li><a href="#industries">Галузі</a></li>
-          <li><a href="#faq">Питання</a></li>
-          <li><a href="/lucas-website/blog/">Блог</a></li>
-          <li><a href="/lucas-website/documents/">Документи</a></li>
-          <li><a href="#contact">Контакти</a></li>
-        </ul>
-      </div>
-
-      <!-- Contacts -->
-      <div class="footer-contact">
-        <div class="footer-col-label">Зв'язатись</div>
-        <div class="footer-contact-row">
-          <span class="footer-contact-lbl">Email</span>
-          <button class="footer-contact-val email-reveal" id="footer-email-reveal" type="button">Показати email</button>
-        </div>
-        <div class="footer-contact-row">
-          <span class="footer-contact-lbl">Телефон</span>
-          <a class="footer-contact-val" href="tel:+380443447915">+380 44 344 7915</a>
-        </div>
-        <div class="footer-contact-row">
-          <span class="footer-contact-lbl">Адреса</span>
-          <span class="footer-contact-val">м. Київ, пл. Спортивна 1а<br>БЦ Гулівер, Вежа А, 17 пов.</span>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="footer-bot">
-      <span class="footer-bot-copy">© <span id="footer-year"></span> LUCAS · ТОВ «Лукас Аудит» · All rights reserved</span>
-      <a class="footer-bot-cta" href="#contact">Обговорити проєкт →</a>
-    </div>
-
-  </div>
-</footer>
-
-<script>
-  const header = document.getElementById('header');
-  if (header) {
-    const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 20);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive:true });
-  }
-
-  // Footer email reveal & year
-  (() => {
-    const u = 'info', d = 'lucasua' + '.com';
-    const yr = document.getElementById('footer-year');
-    if (yr) yr.textContent = new Date().getFullYear();
-    const btn = document.getElementById('footer-email-reveal');
-    if (!btn) return;
-    btn.addEventListener('click', () => {
-      const addr = u + '\u0040' + d;
-      const a = document.createElement('a');
-      a.href = 'mailto:' + addr;
-      a.textContent = addr;
-      a.className = 'footer-contact-val';
-      a.style.color = 'rgba(255,255,255,.6)';
+  }</style>
+<script>(() => {
+    const u='info',d='lucasua'+'.com';
+    const yr=document.getElementById('footer-year');
+    if(yr)yr.textContent=new Date().getFullYear();
+    const btn=document.getElementById('footer-email-reveal');
+    if(!btn)return;
+    btn.addEventListener('click',()=>{
+      const a=document.createElement('a');
+      a.href='mailto:'+u+'\u0040'+d;a.textContent=u+'\u0040'+d;
+      a.className='footer-contact-val';a.style.color='rgba(255,255,255,.6)';
       btn.replaceWith(a);
-    }, { once: true });
-  })();
-</script>
-
+    },{once:true});
+  })();</script>
 </body>
 </html>
