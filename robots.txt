@@ -16,4 +16,4 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 
-Sitemap: /lucas-website/sitemap.xml
+Sitemap: https://lucasua.com/sitemap.xml
